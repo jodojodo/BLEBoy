@@ -1,5 +1,16 @@
 # BLEBoy
 
+This is my fork of the very cool BleBoy project.
+I've updated the tolerance of the joystick to mitigate some stickdrift that I
+had.
+
+Furthermore, I had to install the Adafruit-nrfutil tool to be able to use the Arduino IDE.
+To get this working with the old Board-Support-Backage version (0.6.0), I had to setup a link:
+
+```sh
+ln -s ~/.local/bin/adafruit-nrfutil ~/.local/bin/nrfutil
+```
+
 ## Goal
 Create a BLE peripheral that supports all BLE pairing methods that can
 be used for training and testing, including out-of-band (OOB) pairing.
@@ -113,8 +124,8 @@ To program the nRF52 Feather with the BLEBoy code, follow these steps:
 
 * Copy folders in "libraries" to the user Arduino library folder
   * Commonly found in ~/Arduino/libraries or C:\Users\ \<user\> \Documents\Arduino\libraries
-  
-### (OPTIONAL) Installation for PN352 for OOB Pairing via NFC 
+
+### (OPTIONAL) Installation for PN352 for OOB Pairing via NFC
 
 * Install Python nfcpy (<https://nfcpy.readthedocs.io/en/latest/>) and PySerial (<http://pyserial.readthedocs.io/en/latest/pyserial.html>)
 * Connect the PN532 to an FTDI cable (tested with an Adafruit FTDI Friend), and connect it to your host
