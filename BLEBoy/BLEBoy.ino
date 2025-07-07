@@ -27,8 +27,6 @@
 //#define BUTTON_RIGHT 4
 //#define BUTTON_LEFT 5
 //#define BUTTON_5 28
-
-
 #define NUM_ECC_DIGITS 32
 
 
@@ -51,7 +49,6 @@ Adafruit_seesaw ss;
 #if (SSD1306_LCDHEIGHT != 32)
  #error("Height incorrect, please fix Adafruit_SSD1306.h!");
 #endif
-
 
 
 /******** CONFIG VALUES (Change if needed)********/
@@ -1111,6 +1108,8 @@ void loop() {
   //only allowing up and down movement for now
   int x = ss.analogRead(2);
   int y = ss.analogRead(3);
+  //Serial.printf("X: %d, Y: %d\n", x, y);  a
+  
   /*   Joystick Values
    *        0
    *        |
@@ -1147,7 +1146,7 @@ void loop() {
     int eq1 = 1023 - y;
     int eq2 = y;
     if ( x > eq1 && x < eq2 ){
-      if ( y >= 524 && y <= 1024){
+      if ( y >= 550 && y <= 1024){
         //move right
         Serial.println("Analog right pressed");
         //nav.doNav(enterCmd);
@@ -1179,7 +1178,7 @@ void loop() {
         passkeyDismissed = true;
       }
     }
-    else if ( x >= eq2 && x >= 524 && x <= 1024) {
+    else if ( x >= eq2 && x >= 550 && x <= 1024) {
       //move down
       ms.next();
       change=true;
